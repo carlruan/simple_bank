@@ -25,7 +25,7 @@ type Entry struct {
 }
 
 type Transfer struct {
-	Code          int64 `json:"code"`
+	ID            int64 `json:"id"`
 	FromAccountID int64 `json:"from_account_id"`
 	ToAccountID   int64 `json:"to_account_id"`
 	// must be positive
