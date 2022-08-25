@@ -13,6 +13,11 @@ WHERE id = $1
 LIMIT 1
 FOR NO KEY UPDATE;
 
+-- name: GetAccount :one
+SELECT * FROM accounts
+WHERE id = $1 
+LIMIT 1;
+
 -- name: ListAccount :many
 SELECT * FROM accounts
 ORDER BY id 
