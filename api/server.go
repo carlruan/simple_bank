@@ -6,6 +6,7 @@ import (
 	"github.com/carlruan/simple_bank/token"
 	"github.com/carlruan/simple_bank/util"
 	"github.com/go-playground/validator/v10"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
@@ -42,6 +43,7 @@ func NewServer(config util.Config, store db.Store) (*Server, error) {
 
 func (server *Server) setupRouter() {
 	router := gin.Default()
+	router.GET("/health", server.healthCheck)
 	router.POST("/users", server.createUser)
 	router.POST("/users/login", server.loginUser)
 
@@ -60,6 +62,10 @@ func (server *Server) setupRouter() {
 // Run server on a specific address
 func (server *Server) Start(address string) error {
 	return server.router.Run(address)
+}
+
+func (server *Server) healthCheck(context *gin.Context) {
+	context.JSON(http.StatusOK, "healthy")
 }
 
 func errorResponse(err error) gin.H {
