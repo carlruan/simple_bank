@@ -2,13 +2,13 @@ package api
 
 import (
 	"database/sql"
+	"github.com/lib/pq"
 	"net/http"
 	"time"
 
 	db "github.com/carlruan/simple_bank/db/sqlc"
 	"github.com/carlruan/simple_bank/util"
 	"github.com/gin-gonic/gin"
-	"github.com/lib/pq"
 )
 
 type createUserRequest struct {
