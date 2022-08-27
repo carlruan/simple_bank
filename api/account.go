@@ -4,10 +4,11 @@ import (
 	"database/sql"
 	"errors"
 	"github.com/carlruan/simple_bank/token"
+	"github.com/lib/pq"
 	"net/http"
 
 	db "github.com/carlruan/simple_bank/db/sqlc"
-	"github.com/lib/pq"
+	_ "github.com/lib/pq"
 
 	"github.com/gin-gonic/gin"
 )
